@@ -2,8 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Inicio
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
     <form runat="server">
         <br />
@@ -15,6 +17,7 @@
             <div class="row">
                 <div class="col align-self-end">
                     <asp:Button runat="server" ID="BtnCreate" CssClass="btn btn-success form-control-sm" Text="Create" OnClick="BtnCreate_Click"/>
+                    <asp:Button runat="server" ID="BtnVerLog" CssClass="btn btn-primary form-control-sm" Text="Ver Log" OnClick="BtnVerLog_Click" />
                 </div>
             </div>
         </div>

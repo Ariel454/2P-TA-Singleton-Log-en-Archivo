@@ -11,34 +11,25 @@ namespace CRUD.Pages
 {
 
 
-    public partial class Index
+    public partial class LogViewer
     {
 
         /// <summary>
-        /// Control BtnCreate.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCreate;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control BtnVerLog.
+        /// Control logContent.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnVerLog;
-
-        /// <summary>
-        /// Control gvusuarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvusuarios;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logContent;
     }
 }

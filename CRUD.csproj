@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="Pages\CRUD.aspx" />
     <Content Include="Pages\Index.aspx" />
+    <Content Include="Pages\Logs\ActivityLog.txt" />
+    <Content Include="Pages\LogViewer.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +94,13 @@
     </Compile>
     <Compile Include="Pages\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LogViewer.aspx.cs">
+      <DependentUpon>LogViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LogViewer.aspx.designer.cs">
+      <DependentUpon>LogViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

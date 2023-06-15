@@ -4,6 +4,10 @@ using System.Data.SqlClient;
 using System.Web.UI;
 using System.Data;
 using System.Web.UI.WebControls;
+using System;
+using System.IO;
+using System.Web;
+
 
 namespace CRUD.Pages
 {
@@ -91,7 +95,11 @@ namespace CRUD.Pages
             cmd.Parameters.Add("@Estado", SqlDbType.VarChar).Value = tbestado.Text;
             cmd.ExecuteNonQuery();
             con.Close();
+            string logEntry = $"{DateTime.Now.ToString()} - IP: {Request.UserHostAddress} - Acción: Crear";
+            File.AppendAllText(Server.MapPath("~/Pages/Logs/ActivityLog.txt"), logEntry + Environment.NewLine);
             Response.Redirect("Index.aspx");
+
+
         }
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
@@ -105,7 +113,11 @@ namespace CRUD.Pages
             cmd.Parameters.Add("@Estado", SqlDbType.VarChar).Value = tbestado.Text;
             cmd.ExecuteNonQuery();
             con.Close();
+            string logEntry = $"{DateTime.Now.ToString()} - IP: {Request.UserHostAddress} - Acción: Actualizar";
+            File.AppendAllText(Server.MapPath("~/Pages/Logs/ActivityLog.txt"), logEntry + Environment.NewLine);
             Response.Redirect("Index.aspx");
+
+
         }
 
         protected void BtnDelete_Click(object sender, EventArgs e)
@@ -116,12 +128,34 @@ namespace CRUD.Pages
             cmd.Parameters.Add("@CodigoPeriodoLectivo", SqlDbType.Int).Value = tbCodigoPeriodoLectivo.Text;
             cmd.ExecuteNonQuery();
             con.Close();
+            string logEntry = $"{DateTime.Now.ToString()} - IP: {Request.UserHostAddress} - Acción: Eliminar";
+            File.AppendAllText(Server.MapPath("~/Pages/Logs/ActivityLog.txt"), logEntry + Environment.NewLine);
             Response.Redirect("Index.aspx");
+
+
         }
 
         protected void BtnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Index.aspx");
         }
+
+        void RegistrarActividadEnArchivo(string accion)
+        {
+            string filePath = HttpContext.Current.Server.MapPath("~/Pages/Logs/ActivityLog.txt"); // Ruta del archivo de registro
+
+            string fecha = DateTime.Now.ToString();
+            string ip = HttpContext.Current.Request.UserHostAddress;
+
+            string registro = $"{fecha} - IP: {ip} - Acción: {accion}";
+
+            // Escribir el registro en el archivo
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(registro);
+            }
+        }
+
+
     }
 }
